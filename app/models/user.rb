@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
       user.image = auth['extra']['raw_info']['image']
       user.email = auth['extra']['raw_info']['email']
       user.gender = auth['extra']['raw_info']['gender']
-      user.age = (Date.today - auth['extra']['raw_info']['birthday'].to_date).to_i/365
+      user.birthday = auth['extra']['raw_info']['birthday']
       user.link = auth['extra']['raw_info']['link']
       if auth['info']
          user.name = auth['info']['name'] || ""
@@ -17,7 +17,13 @@ class User < ActiveRecord::Base
     end
   end
 
-  validates :name, :link, :uid, :provider, :gender, presence: true #:age, :email
+  def self.age
+    age = (Date.today - user.birthday).to_i / 365
+    age
+  end
+
+
+  validates :name, :link, :birthday, :uid, :provider, :gender, presence: true
   validates :uid, :link, uniqueness: true
 
 end

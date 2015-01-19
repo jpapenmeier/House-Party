@@ -5,7 +5,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :provider, null: false
       t.string :uid, null: false
       t.string :email
-      t.integer :age
+      t.date :birthday, null: false
       t.string :gender, null: false
       t.string :image
       t.string :link, null: false
