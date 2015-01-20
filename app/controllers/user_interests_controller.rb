@@ -1,9 +1,4 @@
-class UserInterests < ApplicationController
-
-  def create
-
-  end
-
+class UserInterestsController < ApplicationController
   def index
 
   end

@@ -6,7 +6,7 @@
 (check all that apply)
 
 <br>
-<%= form_for @user_interest do |f| %>
-<%= f.collection_check_boxes :user_ids, Interest.all, :id, :name %>
-<%= f.submit %>
+<%= form_for @user do |f| %>
+  <%= f.collection_check_boxes :interest_id, Interest.all, :id, :name %>
+  <%= f.submit %>
 <% end %>
