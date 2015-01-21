@@ -7,4 +7,13 @@ class Home < ActiveRecord::Base
             presence: true
 
   validates :name, unique: true
+
+
+  def self.home_interests
+    group_interests = []
+    self.users.each do |user|
+      group_interests << user.interests
+    end
+    group_interests.uniq    
+  end
 end

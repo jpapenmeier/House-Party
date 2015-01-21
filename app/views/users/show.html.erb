@@ -6,12 +6,11 @@
 (check all that apply)
 
 <br>
-<%= form_for @user do |f| %>
-  <%= f.collection_check_boxes :interest_id, Interest.all, :id, :name %>
-  <%= f.submit %>
+<% unless @user.interests.any? %>
+  <%= form_for @user do |f| %>
+    <%= f.collection_check_boxes :interest_id, Interest.all, :id, :name %>
+    <%= f.submit %>
+  <% end %>
 <% end %>
 
-<br>
-<%= button_for "Create New House", new_house_path %>
-<%= form_for @house
 <br>
