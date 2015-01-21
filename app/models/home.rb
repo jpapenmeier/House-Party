@@ -1,0 +1,10 @@
+class Home < ActiveRecord::Base
+  has_many :users
+  has_many :home_locations
+  has_many :locations, through: :home_locations
+
+  validates :name, :move_in_month, :rent_per_person, :description, :bedrooms,
+            presence: true
+
+  validates :name, unique: true
+end

@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   has_many :user_interests
   has_many :interests, through: :user_interests
-  belongs_to :house
+  belongs_to :home
 
   attr_accessor :interest_id
 
@@ -32,7 +32,7 @@ class User < ActiveRecord::Base
   end
 
 
-  validates :name, :link, :birthday, :uid, :provider, :gender, presence: true
+  validates :name, :link, :uid, :provider, :gender, presence: true
   validates :uid, :link, uniqueness: true
 
 end
